@@ -14,10 +14,10 @@ public class UsersController {
 	@Autowired
 	private UsersService usersService;
 	
-	@RequestMapping()
-	public ModelAndView insert(){
+	@RequestMapping("/users/signup_form")
+	public String signupForm(){
 		
-		return null;
+		return "users/signup_form";
 	}
 	
 	
