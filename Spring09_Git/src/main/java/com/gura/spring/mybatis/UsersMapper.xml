@@ -12,6 +12,11 @@
 		VALUES(#{id},#{pwd},#{email},SYSDATE)
 		
 	</insert>
+ 	<select id="isValid" parameterType="UsersDto" resultType="UsersDto">
+ 		SELECT id,pwd
+ 		FROM users
+ 		WHERE id=#{id} And pwd=#{pwd}
+ 	</select>
 </mapper>
 
 

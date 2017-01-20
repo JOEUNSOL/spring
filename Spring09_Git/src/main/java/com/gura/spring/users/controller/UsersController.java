@@ -3,6 +3,7 @@ package com.gura.spring.users.controller;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,6 +45,31 @@ public class UsersController {
 		ModelAndView mview =new ModelAndView();
 		mview.addObject("msg",dto.getId()+"회원님 가입 되었습니다.");
 		mview.addObject("redirectUri",request.getContextPath());
+		mview.setViewName("users/alert");
+		return mview;
+	}
+	// "/users/signin_form.do"
+	@RequestMapping("/users/signin_form")
+	public String signinForm(HttpSession session){
+		//세션 초기화
+		session.invalidate();
+		return "users/signin_form";
+	}
+	@RequestMapping("/users/signin")
+	public ModelAndView signin(@ModelAttribute UsersDto dto,@RequestParam String uri,HttpSession session){
+		boolean isValid = usersService.isValid(dto);
+		ModelAndView mview = new ModelAndView();
+		if(isValid){// 아이디 비밀번호가 맞는 정보인 경우
+			//로그인 처리를 해준다.
+			session.setAttribute("id",dto.getId());
+			mview.addObject("msg",dto.getId()+"님 로그인 되었습니다.");
+			mview.addObject("redirectUri",uri);
+		}else{
+			//아이디 혹은 비밀번호가 틀리다는 정보를 응답한다.
+			mview.addObject("msg","아이디 혹은 비밀번호가 틀리다");
+			String location=session.getServletContext().getContextPath()+"/users/signin_form.do?uri="+uri;
+			mview.addObject("redirect",location);
+		}
 		mview.setViewName("users/alert");
 		return mview;
 	}
