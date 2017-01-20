@@ -26,6 +26,11 @@
 		FROM users
 		WHERE id=#{id}
 	</select>
+	<update id="update" parameterType="UsersDto">
+		update users
+		SEt pwd=#{pwd} ,email=#{email}
+		where id=#{id}
+	</update>
 </mapper> 
 
 

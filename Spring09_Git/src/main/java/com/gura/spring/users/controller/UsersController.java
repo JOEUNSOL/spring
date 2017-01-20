@@ -93,6 +93,26 @@ public class UsersController {
 		
 		return mview;
 	}
+	@RequestMapping("/users/private/updateform")
+	public ModelAndView updatform(HttpSession session){
+		//1. 세션에 아이디 정보를 얻어온다.
+		String id=(String)session.getAttribute("id");
+		//2. 수정할 회원의 정보를 담고있는 ModelAndview 객체를 얻어온다.
+		ModelAndView mview =usersService.getData(id);
+		//3. foward 이동할 정보를 담아서
+		mview.setViewName("users/private/updateform");
+		return mview;
+	}
+	@RequestMapping("/users/private/update")
+	public ModelAndView update(@ModelAttribute UsersDto dto,HttpServletRequest request){
+		usersService.update(dto);
+		ModelAndView mview =new ModelAndView();
+		mview.addObject("msg" ,dto.getId()+"님 회원정보를 수정했습니다.");
+		String path=request.getContextPath()+"/users/private/info.do";
+		mview.addObject("redirectUri",path);
+		mview.setViewName("users/alert");
+		return mview;
+	}
 }
 
 
