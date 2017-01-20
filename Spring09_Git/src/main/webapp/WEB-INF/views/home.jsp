@@ -23,6 +23,16 @@
 		</div>
 	</c:otherwise>
 </c:choose>
+<canvas id="canvas" width="400" height="300">
+	
+</canvas>
+<script>
+	var ctx= document.getElementById("canvas").getContext("2d");
+	ctx.beginPath();
+	ctx.arc(200,200,20,2*Math.PI,false);
+	ctx.closePath();
+	ctx.stroke();
+</script>
 </body>
 </html>
 

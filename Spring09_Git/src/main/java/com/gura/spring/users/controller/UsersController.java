@@ -73,6 +73,26 @@ public class UsersController {
 		mview.setViewName("users/alert");
 		return mview;
 	}
+	@RequestMapping("/users/signout")
+	public ModelAndView signout(HttpSession session){
+		session.invalidate();
+		ModelAndView mview=new ModelAndView();
+		mview.addObject("msg","로그아웃 되었습니다.");
+		mview.addObject("redirectUri",session.getServletContext().getContextPath());
+		mview.setViewName("users/alert");
+		return mview;
+	}
+	@RequestMapping("/users/private/info")
+	public ModelAndView info(HttpSession session){
+		//1. 세션에 저장된 id 정보를 읽어온다.
+		String id =(String)session.getAttribute("id");
+		//2. UsersDto 가 담긴 ModelAndView 객체를 리턴받는다.
+		ModelAndView mview=usersService.getData(id);
+		//3. foward 이동할 경로를 담고
+		mview.setViewName("users/private/info");
+		
+		return mview;
+	}
 }
 
 

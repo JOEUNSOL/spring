@@ -51,6 +51,14 @@ public class UsersServiceImpl implements UsersService{
 		return map;
 	}
 
+	@Override
+	public ModelAndView getData(String id) {
+		UsersDto dto= usersDao.getData(id);
+		ModelAndView mview =new ModelAndView();
+		mview.addObject("dto",dto);
+		return mview;
+	}
+
 }
 
 
