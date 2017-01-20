@@ -31,6 +31,10 @@
 		SEt pwd=#{pwd} ,email=#{email}
 		where id=#{id}
 	</update>
+	<delete id="delete" parameterType="string">
+		delete from users 
+		WHERE id=#{id}
+	</delete>
 </mapper> 
 
 

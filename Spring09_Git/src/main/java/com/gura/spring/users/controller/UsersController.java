@@ -113,6 +113,18 @@ public class UsersController {
 		mview.setViewName("users/alert");
 		return mview;
 	}
+	@RequestMapping("/users/private/delete")
+	public ModelAndView delete(HttpSession session,HttpServletRequest request){
+		String id= (String)session.getAttribute("id");
+		usersService.delete(id);
+		session.invalidate();
+		ModelAndView mview=new ModelAndView();
+		mview.addObject("msg","회원님의 탈퇴처리가 완료되었습니다.");
+		String path= request.getContextPath()+"/home.do";
+		mview.addObject("redirectUri",path);
+		mview.setViewName("users/alert");
+		return mview;
+	}
 }
 
 

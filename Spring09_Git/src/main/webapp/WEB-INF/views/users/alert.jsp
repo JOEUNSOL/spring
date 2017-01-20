@@ -8,8 +8,7 @@
 <title></title>
 </head>
 <body>
-<h3>${msg }</h3>
-<a href="${redirectUri }">확인</a>
+
 <script>
 	alert("${msg}");
 	location.href="${redirectUri}";
