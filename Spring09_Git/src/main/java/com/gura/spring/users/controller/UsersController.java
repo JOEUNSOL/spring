@@ -67,8 +67,8 @@ public class UsersController {
 		}else{
 			//아이디 혹은 비밀번호가 틀리다는 정보를 응답한다.
 			mview.addObject("msg","아이디 혹은 비밀번호가 틀리다");
-			String location=session.getServletContext().getContextPath()+"/users/signin_form.do?uri="+uri;
-			mview.addObject("redirect",location);
+			
+			
 		}
 		mview.setViewName("users/alert");
 		return mview;

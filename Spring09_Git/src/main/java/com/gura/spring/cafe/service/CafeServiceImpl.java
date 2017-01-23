@@ -49,7 +49,7 @@ public class CafeServiceImpl implements CafeService{
 
 	@Override
 	public void delete(int num) {
-		// TODO Auto-generated method stub
+		cafeDao.delete(num);
 		
 	}
 
