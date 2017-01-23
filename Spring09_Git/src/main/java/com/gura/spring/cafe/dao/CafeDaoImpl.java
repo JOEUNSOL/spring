@@ -40,8 +40,7 @@ public class CafeDaoImpl implements CafeDao{
 
 	@Override
 	public void update(CafeDto dto) {
-		// TODO Auto-generated method stub
-		
+		session.update("cafe.update",dto);
 	}
 
 	@Override
