@@ -10,4 +10,10 @@
 		FROM board_cafe
 		ORDER BY num DESC
 	</select>
+	<insert id="insert" parameterType="CafeDto">
+		INSERT INTO board_cafe
+		(num, writer, title, content, viewCount, regdate)
+		VALUES(board_cafe_seq.NEXTVAL, 
+		#{writer}, #{title}, #{content}, #{viewCount}, SYSDATE)
+	</insert>
 </mapper>

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.gura.spring.cafe.dto.CafeDto;
 
 @Repository
-public class CafeDtoImpl implements CafeDao{
+public class CafeDaoImpl implements CafeDao{
 
 	@Autowired
 	private SqlSession session;
@@ -22,7 +22,7 @@ public class CafeDtoImpl implements CafeDao{
 
 	@Override
 	public void insert(CafeDto dto) {
-		// TODO Auto-generated method stub
+		session.insert("cafe.insert",dto);
 		
 	}
 
