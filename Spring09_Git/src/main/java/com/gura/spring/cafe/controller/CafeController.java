@@ -53,4 +53,16 @@ public class CafeController {
 		
 		return "redirect:/cafe/list.do";
 	}
+	
+	@RequestMapping("/cafe/private/updateform")
+	public ModelAndView updateform(@RequestParam int num){
+		ModelAndView mview = cafeService.updateForm(num);
+		mview.setViewName("cafe/private/updateform");
+		return mview;
+	}
+	@RequestMapping("/cafe/private/update")
+	public String update(@ModelAttribute CafeDto dto){
+		cafeService.update(dto);
+		return "redirect:/cafe/list.do";
+	}
 }
