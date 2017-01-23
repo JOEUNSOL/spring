@@ -22,4 +22,11 @@ public class CafeController {
 		//리턴해준다.
 		return mview;
 	}
+	
+	@RequestMapping("/cafe/private/insertform")
+	public String insertform(){
+		
+		
+		return "cafe/private/insertform";
+	}
 }
