@@ -67,7 +67,7 @@ public class UsersController {
 		}else{
 			//아이디 혹은 비밀번호가 틀리다는 정보를 응답한다.
 			mview.addObject("msg","아이디 혹은 비밀번호가 틀리다");
-			
+			mview.addObject("redirectUri","signin_form.do");
 			
 		}
 		mview.setViewName("users/alert");
