@@ -7,12 +7,14 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		<typeAlias type="com.gura.spring.users.dto.UsersDto" alias="UsersDto"/>
 		<typeAlias type="com.gura.spring.cafe.dto.CafeDto" alias="CafeDto"/>
+		
 	</typeAliases>
 
 	<!-- sql 문을 정의하고 있는 xml 문서 정보 -->
 	<mappers>
 		<mapper resource="com/gura/spring/mybatis/UsersMapper.xml"/>
 		<mapper resource="com/gura/spring/mybatis/CafeMapper.xml"/>
+		<mapper resource="com/gura/spring/mybatis/ShopMapper.xml"/>
 	</mappers>
 </configuration>
 

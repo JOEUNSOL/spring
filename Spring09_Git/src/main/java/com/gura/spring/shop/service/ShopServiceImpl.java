@@ -13,7 +13,7 @@ public class ShopServiceImpl implements ShopService{
 	
 	@Override
 	public void deposit(String id, int money) {
-		//가상의 입금 작업을 하는 메소드
+		shopDao.deposit(id, money);
 		
 	}
 
